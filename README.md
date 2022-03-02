@@ -1,4 +1,4 @@
-# airlines
+# Airlines
 Asynchronous and reactive applications that emulate capabilities of airlines.
 
 ## Reactive Airlines
