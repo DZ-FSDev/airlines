@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.1
- * @version 0.0.2
+ * @version 0.0.3
  */
 @RestController
 @RequestMapping("/employees")
@@ -27,6 +27,11 @@ public class RESTController_Employee {
 	@GetMapping("/{id}")
 	private Mono<Employee> getEmployeeById(@PathVariable String id) {
 	    return employeeRepository.findById(Long.parseLong(id));
+	}
+	
+	@GetMapping("/count")
+	private Mono<Long> getEmployeeCount() {
+	    return employeeRepository.count();
 	}
 	
 	@GetMapping
