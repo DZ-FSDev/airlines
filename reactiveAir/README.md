@@ -1,4 +1,4 @@
 # Reactive Airlines
 
 ## Schema
-![ReactiveAirlinesERD](https://user-images.githubusercontent.com/85122787/156477094-a24ae5eb-def9-41d8-8f15-efcf0bd575d1.svg)
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/85122787/156477422-2c03cccd-9691-4f5a-bf63-530cce84e697.svg)
