@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+public class Employee implements IEmployee{
 	private @Id Long id;
 	private String firstName;
 	private String lastName;
