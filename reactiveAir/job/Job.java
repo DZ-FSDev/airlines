@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.1
+ * @version 0.0.2
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Job {
+public class Job implements IJob{
 	private @Id Long id;
 	private String title;
 	private BigDecimal salary;
