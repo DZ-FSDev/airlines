@@ -8,16 +8,14 @@ import reactor.core.publisher.Flux;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.3
+ * @version 0.0.5
  */
 public interface IEmployeeRepository  extends ReactiveCrudRepository<Employee, Long>{
-    Flux<Employee> findByFirstName(String firstName);
-	
-    Flux<Employee> findByLastName(String lastName);
     
-    Flux<Employee> findByFirstNameOrderByFirstName(String firstName);
+	<T> Flux<T> findAllBy(Class<T> type);
+	<T> Flux<T> findByFirstName(String firstName, Class<T> type);
+	<T> Flux<T> findByLastName(String lastName, Class<T> type);
+	<T> Flux<T> findByFirstNameOrderByFirstName(String lastName, Class<T> type);
+	<T> Flux<T> findByLastNameOrderByFirstName(String lastName, Class<T> type);
 	
-    Flux<Employee> findByLastNameOrderByFirstName(String lastName);
-    
-    <T> Flux<T> findAllBy(Class<T> type);
 }
