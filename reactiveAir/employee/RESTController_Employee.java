@@ -16,27 +16,27 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.1
- * @version 0.0.3
+ * @version 0.0.4
  */
 @RestController
 @RequestMapping("/employees")
 public class RESTController_Employee {
 	@Autowired
-	private IEmployeeRepository employeeRepository;
+	private IEmployeeService employeeSvc;
 	
 	@GetMapping("/{id}")
 	private Mono<Employee> getEmployeeById(@PathVariable String id) {
-	    return employeeRepository.findById(Long.parseLong(id));
+	    return employeeSvc.findById(Long.parseLong(id));
 	}
 	
 	@GetMapping("/count")
 	private Mono<Long> getEmployeeCount() {
-	    return employeeRepository.count();
+	    return employeeSvc.count();
 	}
 	
 	@GetMapping
-	private Flux<Employee> getAllEmployees() {
-	    return employeeRepository.findAll();
+	private Flux<DTOEmployeeSimple> getAllEmployees() {
+	    return employeeSvc.findAllBy(DTOEmployeeSimple.class);
 	}
 	
 	@GetMapping("/add")
@@ -45,6 +45,6 @@ public class RESTController_Employee {
 	    emp.setFirstName(firstName);
 	    emp.setLastName(lastName);
 	    
-		return employeeRepository.save(emp);
+		return employeeSvc.save(emp);
 	}
 }
