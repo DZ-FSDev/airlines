@@ -1,4 +1,4 @@
 # Reactive Airlines
 
-## Schema
-![](https://user-images.githubusercontent.com/85122787/156494073-4c69a926-146a-41ad-beca-c92b266ee4e7.svg)
+## Schema (WIP)
+![Schema](https://user-images.githubusercontent.com/85122787/157369808-b520480a-cffc-4f03-b83c-8cd7e237a3d1.svg)
