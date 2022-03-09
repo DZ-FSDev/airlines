@@ -9,11 +9,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Represents a job at an airline.
+ * Represents a department at an airport.
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.1
+ * @version 0.0.2
  */
 @Data
 @AllArgsConstructor
@@ -22,4 +22,6 @@ public class Department implements IDepartment{
 	private @Id Long id;
 	private String name;
 	private BigDecimal budget;
+	
+	private Airport airport;
 }
