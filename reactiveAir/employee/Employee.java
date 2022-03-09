@@ -2,7 +2,6 @@ package com.dz_fs_dev.airlines.reactiveAir.employee;
 
 import org.springframework.data.annotation.Id;
 
-import com.dz_fs_dev.airlines.reactiveAir.job.Job;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.3
+ * @version 0.0.5
  */
 @Data
 @Builder
@@ -24,5 +23,10 @@ public class Employee implements IEmployee{
 	private String firstName;
 	private String lastName;
 	
-	private Job job;
+	private Long startTS;
+	
+	private Long job_id;
+	
+	private Long supervisor_id;
+	private Long manager_id;
 }
