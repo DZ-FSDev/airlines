@@ -28,12 +28,13 @@ import lombok.NoArgsConstructor;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.2
+ * @version 0.0.3
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DTOEmployeeSimple {
+public class DTOEmployeeSimple implements IEmployee{
+	private Long id;
 	private String firstName;
 	private String lastName;
 }
