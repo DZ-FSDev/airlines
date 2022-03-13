@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.1
+ * @version 0.0.2
  */
 @Data
 @AllArgsConstructor
@@ -37,4 +37,7 @@ public class DTOEmployeeHire implements IEmployee{
 	private String firstName;
 	private String lastName;
 	private Long startTS;
+	
+	private Long manager_id;
+	private Long supervisor_id;
 }
