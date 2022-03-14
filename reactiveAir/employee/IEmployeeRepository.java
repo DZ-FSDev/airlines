@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.7
+ * @version 0.0.8
  */
 public interface IEmployeeRepository  extends ReactiveCrudRepository<Employee, Long>{
 	
@@ -19,4 +19,6 @@ public interface IEmployeeRepository  extends ReactiveCrudRepository<Employee, L
 	<T extends IEmployee> Flux<T> findByFirstNameOrderByFirstName(String lastName, Class<T> type);
 	<T extends IEmployee> Flux<T> findByLastNameOrderByFirstName(String lastName, Class<T> type);
 	
+	@Query("SELECT * FROM employee e WHERE e.manager_id IS NOT NULL")
+	<T extends IEmployee> Flux<T> findAllManagedEmployees(Class<T> type);
 }
