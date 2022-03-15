@@ -8,7 +8,7 @@ import reactor.core.publisher.Flux;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.9
+ * @version 0.0.10
  */
 public interface IEmployeeRepository  extends ReactiveCrudRepository<Employee, Long>{
 	
@@ -25,4 +25,8 @@ public interface IEmployeeRepository  extends ReactiveCrudRepository<Employee, L
 	
 	@Query("SELECT * FROM employee e WHERE e.manager_id IS NOT NULL")
 	<T extends IEmployee> Flux<T> findAllManagedEmployees(Class<T> type);
+	
+	@Query("SELECT * FROM employee e "
+			+ "JOIN employee f ON e.id = f.supervisor_id")
+	<T extends IEmployee> Flux<T> findAllSupervisors(Class<T> type);
 }
