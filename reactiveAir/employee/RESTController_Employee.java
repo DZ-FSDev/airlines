@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.1
- * @version 0.0.7
+ * @version 0.0.8
  */
 @RestController
 @RequestMapping("/employees")
@@ -84,5 +84,23 @@ public class RESTController_Employee {
 	@GetMapping("/hiring")
 	private Flux<Employee> getAllHiredEmployees() {
 	    return employeeSvc.findAllBy(Employee.class);
+	}
+	
+	/**
+	 * Temporary endpoint to add employees.
+	 *
+	 * @param firstName
+	 * @param lastName
+	 * @return
+	 * @since 0.0.8
+	 */
+	@GetMapping("/add")
+	private Mono<Employee> addEmployee(String firstName, String lastName) {
+	    Employee emp = new Employee();
+	    emp.setFirstName(firstName);
+	    emp.setLastName(lastName);
+	    emp.setStartTS(System.currentTimeMillis());
+	    
+		return employeeSvc.save(emp);
 	}
 }
