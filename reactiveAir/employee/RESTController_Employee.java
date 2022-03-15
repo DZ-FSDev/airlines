@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.1
- * @version 0.0.4
+ * @version 0.0.5
  */
 @RestController
 @RequestMapping("/employees")
@@ -24,27 +24,45 @@ public class RESTController_Employee {
 	@Autowired
 	private IEmployeeService employeeSvc;
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @since 0.0.5
+	 */
 	@GetMapping("/{id}")
 	private Mono<Employee> getEmployeeById(@PathVariable String id) {
 	    return employeeSvc.findById(Long.parseLong(id));
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 * @since 0.0.5
+	 */
+	@GetMapping("/managers/{id}")
+	private Mono<Employee> getManagerById(@PathVariable String id) {
+	    return employeeSvc.findManagerById(Long.parseLong(id));
+	}
+	
+	/**
+	 * 
+	 * @return
+	 * @since 0.0.5
+	 */
 	@GetMapping("/count")
 	private Mono<Long> getEmployeeCount() {
 	    return employeeSvc.count();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @since 0.0.5
+	 */
 	@GetMapping
-	private Flux<DTOEmployeeSimple> getAllEmployees() {
-	    return employeeSvc.findAllBy(DTOEmployeeSimple.class);
-	}
-	
-	@GetMapping("/add")
-	private Mono<Employee> addEmployee(String firstName, String lastName) {
-	    Employee emp = new Employee();
-	    emp.setFirstName(firstName);
-	    emp.setLastName(lastName);
-	    
-		return employeeSvc.save(emp);
+	private Flux<Employee> getAllEmployees() {
+	    return employeeSvc.findAllBy(Employee.class);
 	}
 }
