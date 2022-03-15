@@ -3,8 +3,6 @@ package com.dz_fs_dev.airlines.reactiveAir.employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +13,8 @@ import reactor.core.publisher.Mono;
  * /employees REST API Controller.
  * 
  * @author DZ-FSDev
- * @since 17.0.1
- * @version 0.0.8
+ * @since 17.0.2
+ * @version 0.0.9
  */
 @RestController
 @RequestMapping("/employees")
@@ -88,7 +86,7 @@ public class RESTController_Employee {
 	
 	/**
 	 * Temporary endpoint to add employees.
-	 *
+	 * 
 	 * @param firstName
 	 * @param lastName
 	 * @return
@@ -102,5 +100,18 @@ public class RESTController_Employee {
 	    emp.setStartTS(System.currentTimeMillis());
 	    
 		return employeeSvc.save(emp);
+	}
+	
+	/**
+	 * 
+	 * @param employee_id
+	 * @param manager_id
+	 * @return
+	 * @since 0.0.9
+	 */
+	@GetMapping("/assignManager")
+	private Mono<Boolean> assignManager(Long employee_id, Long manager_id){
+		employeeSvc.assignManager(employee_id, manager_id);
+		return Mono.just(Boolean.TRUE);
 	}
 }
