@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.1
- * @version 0.0.5
+ * @version 0.0.6
  */
 @RestController
 @RequestMapping("/employees")
@@ -64,5 +64,15 @@ public class RESTController_Employee {
 	@GetMapping
 	private Flux<Employee> getAllEmployees() {
 	    return employeeSvc.findAllBy(Employee.class);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 * @since 0.0.6
+	 */
+	@GetMapping("/managers")
+	private Flux<Employee> getAllManagers() {
+	    return employeeSvc.findAllManagersBy(Employee.class);
 	}
 }
