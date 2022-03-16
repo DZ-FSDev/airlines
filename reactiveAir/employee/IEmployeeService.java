@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.4
+ * @version 0.0.5
  */
 @Service
 public interface IEmployeeService {
@@ -32,6 +32,14 @@ public interface IEmployeeService {
 	 * @since 0.0.2
 	 */
 	Mono<Boolean> assignManager(Long employee_id, Long manager_id);
+	
+	/**
+	 * 
+	 * @param employee_id
+	 * @param supervisor_id
+	 * @since 0.0.5
+	 */
+	Mono<Boolean> assignSupervisor(Long employee_id, Long supervisor_id);
 	
 	/**
 	 * 
