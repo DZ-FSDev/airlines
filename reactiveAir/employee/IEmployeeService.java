@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.5
+ * @version 0.0.6
  */
 @Service
 public interface IEmployeeService {
@@ -21,7 +21,7 @@ public interface IEmployeeService {
 	<T extends IEmployee> Flux<T> findByFirstNameOrderByFirstName(String lastName, Class<T> type);
 	<T extends IEmployee> Flux<T> findByLastNameOrderByFirstName(String lastName, Class<T> type);
 	Mono<Employee> save(Employee emp);
-	Mono<Employee> findById(long parseLong);
+	Mono<Employee> findById(Long parseLong);
 	Mono<Long> count();
 	
 	/**
@@ -29,7 +29,7 @@ public interface IEmployeeService {
 	 * @param employee_id
 	 * @param manager_id
 	 * @return 
-	 * @since 0.0.2
+	 * @since 0.0.4
 	 */
 	Mono<Boolean> assignManager(Long employee_id, Long manager_id);
 	
@@ -49,4 +49,13 @@ public interface IEmployeeService {
 	 * @since 0.0.3
 	 */
 	<T extends IEmployee> void assignManager(T employee, T manager);
+	
+	/**
+	 * 
+	 * @param <T>
+	 * @param type
+	 * @return
+	 * @since 0.0.6
+	 */
+	<T extends IEmployee> Flux<T> findAllManagersBy(Class<T> type);
 }
