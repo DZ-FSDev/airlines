@@ -12,6 +12,7 @@ import reactor.core.publisher.Flux;
  * @version 0.0.2
  */
 public interface IJobRepository  extends ReactiveCrudRepository<Job, Long>{
+	<T extends IJob> Mono<T> findById(Class<T> type, Long id);
 	<T extends IJob> Flux<T> findAllBy(Class<T> type);
 	<T extends IJob> Flux<T> findAllByTitle(Class<T> type, String title);
 }
