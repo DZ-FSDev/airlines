@@ -17,4 +17,5 @@ public interface IJobRepository  extends ReactiveCrudRepository<Job, Long>{
 	<T extends IJob> Flux<T> findAllByTitle(Class<T> type, String title);
 	
 	<T extends IJob> Flux<T> findAllByTitle(Class<T> type, String title);
+	<T extends IJob> Flux<T> findAllByTitleOrderBySalary(Class<T> type, String title);
 }
