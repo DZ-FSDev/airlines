@@ -35,9 +35,11 @@ public interface IEmployeeService {
 	Mono<Boolean> assignManager(Long employee_id, Long manager_id);
 
 	/**
+	 * Assigns a supervisor to an employee. The supervisor must be an existing employee.
 	 * 
-	 * @param employee_id
-	 * @param supervisor_id
+	 * @param employee_id The primary key for the employee to be supervised.
+	 * @param supervisor_id The primary key of the supervisor.
+	 * @return Whether assignment of the supervisor was successful.
 	 * @since 0.0.5
 	 */
 	Mono<Boolean> assignSupervisor(Long employee_id, Long supervisor_id);
