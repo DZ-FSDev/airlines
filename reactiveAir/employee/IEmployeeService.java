@@ -25,10 +25,11 @@ public interface IEmployeeService {
 	Mono<Long> count();
 
 	/**
+	 * Assigns a manager to an employee. The manager must be an existing employee.
 	 * 
-	 * @param employee_id
-	 * @param manager_id
-	 * @return 
+	 * @param employee_id The primary key for the employee to be managed.
+	 * @param manager_id The primary key of the manager.
+	 * @return Whether assignment of the manager was successful.
 	 * @since 0.0.4
 	 */
 	Mono<Boolean> assignManager(Long employee_id, Long manager_id);
