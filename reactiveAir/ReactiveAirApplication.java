@@ -20,18 +20,21 @@ package com.dz_fs_dev.airlines.reactiveAir;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.r2dbc.config.EnableR2dbcAuditing;
 
 /**
  * Reactive Airlines Spring Boot Application.
  * 
  * @author DZ_FSDev
  * @since 17.0.2
- * @version 0.0.1
+ * @version 0.0.2
  */
 @SpringBootApplication
+@EnableR2dbcAuditing
 public class ReactiveAirApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(ReactiveAirApplication.class, args);
+		ApplicationContext context = SpringApplication.run(ReactiveAirApplication.class, args);
 	}
 
 }
