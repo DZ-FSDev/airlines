@@ -18,7 +18,7 @@ import lombok.ToString;
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.7
+ * @version 0.0.8
  */
 @Table
 @Data
@@ -33,8 +33,6 @@ public class Employee implements IEmployee{
 	private String lastName;
 	
 	private Long startTS;
-	
-	private Long job_id;
 	
 	private Long supervisor_id;
 	private Long manager_id;
