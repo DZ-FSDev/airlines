@@ -2,4 +2,4 @@
 
 ## Schema (WIP)
 
-![Schema](https://user-images.githubusercontent.com/85122787/158865818-bbde9ebb-305d-4516-bc81-d520b1fc6719.svg)
+![Schema](https://user-images.githubusercontent.com/85122787/160135361-9f0d3c1f-911e-4350-a883-118c29adca2e.svg)
