@@ -2,19 +2,18 @@ package com.dz_fs_dev.airlines.reactiveAir.job;
 
 import java.math.BigDecimal;
 
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
-
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 /**
- * Persistence layer for {@link Job} entities.
+ * Reactive Persistence layer for {@link Job} entities.
  * 
  * @author DZ-FSDev
  * @since 17.0.2
- * @version 0.0.5
+ * @version 0.0.6
  */
-public interface IJobRepository  extends ReactiveCrudRepository<Job, Long>{
+public interface IJobRepository  extends R2dbcRepository<Job, Long>{
 	<T extends IJob> Mono<T> findById(Class<T> type, Long id);
 	<T extends IJob> Flux<T> findAllBy(Class<T> type);
 	<T extends IJob> Flux<T> findAllByTitle(Class<T> type, String title);
